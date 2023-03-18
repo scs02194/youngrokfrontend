@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        label {
+            display: inline-block;
+            width: 120px;
+            text-align: right;
+            margin-right: 10px;
+        }
+        input[type="text"] {
+            width: 200px;
+        }
+        button[type="submit"] {
+            margin-top: 10px;
+            font-size: 16px;
+            padding: 5px 10px;
+            background-color: #1E90FF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Enter Your Values</h1>
+        <div>
+            <label for="Hb">Hb:</label>
+            <input type="text" id="Hb" name="Hb"><br>
+        </div>
+        <div>
+            <label for="PT">PT(sec):</label>
+            <input type="text" id="PT" name="PT"><br>
+        </div>
+        <div>
+            <label for="aPTT">aPTT:</label>
+            <input type="text" id="aPTT" name="aPTT"><br>
+        </div>
+        <div>
+            <label for="motor">Motor Strength LE 평균:</label>
+            <input type="text" id="motor" name="motor"><br>
+        </div>
+        <div>
+            <label for="temperature">체온:</label>
+            <input type="text" id="temperature" name="temperature"><br>
+        </div>
+        <button type="submit">Submit</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $("button[type='submit']").click(function(e) {
+                var settings = {
+                    "url": "https://j7gkntgqbb.execute-api.us-east-2.amazonaws.com/v1/getvalue",
+                    "method": "POST",
+                    "timeout": 0,
+                    "headers": {
+                      "Content-Type": "application/json"
+                    },
+                    "data": JSON.stringify({
+                      "num1": 1,
+                      "num2": 1,
+                      "num3": 1,
+                      "num4": 1,
+                      "num5": 1
+                    }),
+                  };
+                  
+                  $.ajax(settings).done(function (response) {
+                    console.log(response);
+                  });
+            });
+        });
+    </script>
+</body>
+</html>
