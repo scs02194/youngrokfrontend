@@ -29,11 +29,12 @@
 	<title>MICU2 욕창 확률 계산기</title>
 	<style>
 		.container {
+			margin-top: 100px;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			height: 100vh;
+			margin-bottom: 30px;
 		}
 		.form {
 			display: flex;
@@ -67,6 +68,16 @@
 			cursor: pointer;
 			animation: pulse 2s infinite;
 		}
+		.form textarea {
+            margin: 10px 0px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0px 0px 5px 0px #888;
+            font-size: 16px;
+            width: 300px;
+            resize: none;
+        }
 		@keyframes fadeIn {
 			from {
 				opacity: 0;
@@ -79,6 +90,7 @@
 </head>
 <body>
 	<div class="container">
+		
 		<div class="form">
 			<label for="Hb">Hb:</label>
 			<input type="text" id="Hb" name="Hb">
@@ -93,6 +105,18 @@
             <label for="result">욕창 확률값:</label>
 			<input type="text" id="result" name="result" disabled>
 			<button id="submit-btn" type="submit">계산</button>
+		</div>
+	</div>
+	<div class="container">
+		<div class="form">
+			<label for="guide">안내문</label>
+			<p>안녕하세요, 사랑하는 MICU2 간호사 선생님 여러분. MICU2 간호사 정영록입니다. 먼저 욕창 예측 프로그램에 관심을 가져주셔서 감사합니다. 본 프로그램은 팀장님, UM님을 비롯한 여러 간호사 선생님들과 저의 친동생 정지웅 군의 도움으로 개발을 완료할 수 있었습니다.</p>
+			<p>많은 선생님들께서 알고 계시겠지만 우리가 자주 사용하는 Braden scale은 거의 대부분의 환자를 욕창 고위험군으로 분류하고 있습니다. 모든 환자들이 고위험군으로 분류됨에 따라 욕창 발생 가능성에 대해 자연스럽게 무뎌지게 됩니다. 물론 중환자실에 입실한 많은 환자들이 욕창 고위험군인 것은 사실이나 우리 부서 특성에 맞는 욕창 고위험군 분류 방법을 고안해 내는 것이 필요하다고 생각하였습니다.</p>
+			<p>본 프로그램은 부서에서 욕창 발생율이 크게 증가하였던 2022년 7월부터 2022년 9월까지 3일 이상 입실하였던 환자들의 데이터를 이용하였습니다. 논문을 참조하여 욕창에 영향을 미치는 19개의 요인을 선별하여 분석하였고 사용자 편의를 위하여 가장 중요한 5개 변수만 입력하도록 설계하였습니다.</p>
+			<p>프로그램 초기 설계에는 50% 확률이 넘는다면 욕창 고위험군으로 판단하도록 계산하였으나 좀 더 구체적인 수치를 제공하기 위하여 확률값이 출력되도록 하였습니다. 따라서 선생님들께서는 50%를 기준으로 욕창 고위험군을 판별해주시면 감사하겠습니다.</p>
+			<p>환자 자료를 분석한 결과 Hb은 낮을 수록, PT, aPTT는 높을수록(즉, 혈역학적으로 불안정할수록), 체온은 낮을수록(선행 연구와 차이가 있습니다), Lower extremites strength가 낮을수록 욕창 고위험군인 것으로 나타났습니다.</p>
+			<p>본 프로그램은 해당 기간 동안의 데이터를 기준으로 정확도는 75%정도로 나타났습니다. 다만 프로그램의 로직은 한정된 기간에, 한정된 환자만을 대상으로 분석하였으므로 실제 환자들에게 적용시 예측 성능이 떨어질 수 있으므로 욕창 고위험군이 아니라고 하더라도 우리가 기존에 하던 욕창 예방 활동은 성실하게 수행해야 할 필요가 있겠습니다.</p>
+			<p>모쪼록 이 프로그램이 MICU2의 욕창 발생 감소와 동료 간호사 선생님들의 욕창 예방 활동에 도움이 되길 바라며 프로그램의 로직에 관한 문의는 언제나 환영합니다. 감사합니다.</p>
 		</div>
 	</div>
 </body>
